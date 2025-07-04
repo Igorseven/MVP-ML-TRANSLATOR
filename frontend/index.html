@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Identifier - Identificador de Idioma</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-language"></i> Language Identifier</h1>
+            <p>Identifique o idioma de um texto (Português ou Inglês) usando inteligência artificial</p>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('single')">
+                <i class="fas fa-file-alt"></i> Análise de Texto
+            </button>
+        </div>
+
+        <!-- Single Comment Tab -->
+        <div id="singleTab" class="tab-content active">
+            <div class="input-section">
+                <div class="form-group">
+                    <label for="textInput">
+                        <i class="fas fa-keyboard"></i> Digite o texto para análise:
+                    </label>
+                    <textarea 
+                        id="textInput" 
+                        class="form-input form-textarea" 
+                        placeholder="Digite aqui o texto que você deseja analisar..."
+                        maxlength="1000"
+                    ></textarea>
+                </div>
+                <button class="btn" onclick="analyzeText()">
+                    <i class="fas fa-search"></i> Analisar Texto
+                </button>
+            </div>
+
+            <div class="loading" id="singleLoading">
+                <div class="spinner"></div>
+                <p>Analisando texto...</p>
+            </div>
+
+            <div class="results-section" id="singleResults">
+                <div class="single-result">
+                    <div id="singleResultIcon" class="result-icon"></div>
+                    <div id="singleResultText" class="result-text"></div>
+                    <div id="singleConfidence" class="confidence-badge"></div>
+                    <div id="singleText" style="background: #f8f9fa; padding: 15px; border-radius: 10px; margin: 20px 0; font-style: italic;"></div>
+                    <button class="new-analysis-btn" onclick="resetAnalysis()">
+                        <i class="fas fa-plus"></i> Nova Análise
+                    </button>
+                </div>
+            </div>
+
+            <div class="error-message" id="singleError"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
